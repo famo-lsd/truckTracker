@@ -1,37 +1,51 @@
+import classNames from 'classnames';
 import React from 'react';
 import { withTranslation } from 'react-i18next';
+import Auth from './authentication';
+import './i18n';
 
 class SignIn extends React.Component {
     constructor(props) {
         super(props);
+
+        console.log(props);
+
         this.state = {
             hideUserMsg: true,
-            hidePasswordMsg: true
+            hidePwdMsg: true,
+            is400Error: false,
+            is500Error: false
         };
+    }
+
+    hideInputMsg(hideFlag) {
+        return 'signin-error-input' + (hideFlag ? ' hide' : '');
     }
 
     handleUserInput = (event) => {
         if (!event.target.value) {
-            console.log(event.target.className);
-
-            event.target.className = '';
-
             this.setState({ hideUserMsg: event.type === 'blur' ? false : true });
         }
     }
 
-    handlePasswordInput = (event) => {
+    handlePwdInput = (event) => {
         if (!event.target.value) {
-            this.setState({ hidePasswordMsg: event.type === 'blur' ? false : true });
+            this.setState({ hidePwdMsg: event.type === 'blur' ? false : true });
         }
     }
 
-    hideInputMsg (hideBool){
-        return 'signin-error-input' + (hideBool ? ' hide' : '');
+    handleSubmit = (event) => {
+        event.preventDefault();
+        Auth.signIn('password', event.target.username.value, event.target.password.value);
+
     }
 
     render() {
-        const famoLogo = process.env.REACT_APP_CODE_URL + "/Content/Images/logo-famo-black-normal.png",
+        const famoLogo = process.env.REACT_APP_CODE_URL + '/Content/Images/logo-famo-black-normal.png',
+            inputClassName = 'famo-input signin-form-input famo-text-3',
+            userInputClassName = classNames(inputClassName, { 'famo-input-error': !this.state.hideUserMsg }),
+            pwdInputClassName = classNames(inputClassName, { 'famo-input-error': !this.state.hidePwdMsg }),
+            errSubmitClassName = classNames('signin-error-submit', { 'hide': !this.state.is400Error && !this.state.is500Error }),
             { t } = this.props;
 
         return (
@@ -46,20 +60,18 @@ class SignIn extends React.Component {
                                 <div className="signin-app-name">
                                     <span className="famo-text-2">{process.env.REACT_APP_WEBSITE_NAME}</span>
                                 </div>
-                                <form id="signin-form">
+                                <form id="signin-form" method="POST" onSubmit={this.handleSubmit}>
                                     <div className="signin-input-wrapper">
-                                        <input type="text" id="signin-username-input" className="famo-input signin-form-input famo-text-3" placeholder={t('key_397')} name="username" defaultValue="" autoComplete="off" autoFocus onFocus={this.handleUserInput} onBlur={this.handleUserInput} />
+                                        <input type="text" id="signin-username-input" className={userInputClassName} placeholder={t('key_397')} name="username" defaultValue="" autoComplete="off" autoFocus onFocus={this.handleUserInput} onBlur={this.handleUserInput} />
                                         <SignInInputMsg msgClass={this.hideInputMsg(this.state.hideUserMsg)} msgText={t('key_196')} />
                                     </div>
                                     <div className="signin-input-wrapper">
-                                        <input type="password" id="signin-password-input" className="famo-input signin-form-input famo-text-3" placeholder={t('key_314')} name="password" onFocus={this.handlePasswordInput} onBlur={this.handlePasswordInput} />
-                                        <SignInInputMsg msgClass={this.hideInputMsg(this.state.hidePasswordMsg)} msgText={t('key_195')} />
+                                        <input type="password" id="signin-password-input" className={pwdInputClassName} placeholder={t('key_314')} name="password" onFocus={this.handlePwdInput} onBlur={this.handlePwdInput} />
+                                        <SignInInputMsg msgClass={this.hideInputMsg(this.state.hidePwdMsg)} msgText={t('key_195')} />
                                     </div>
-                                    <div className="signin-error-submit hide">
-                                        {/* 400 */}
-                                        <span className="famo-text-7">{t('key_398')}</span>
-                                        {/* 500 */}
-                                        <span className="famo-text-7">{t('key_306')}</span>
+                                    <div className={errSubmitClassName}>
+                                        {this.state.is400Error && <span className="famo-text-7">{t('key_398')}</span>}
+                                        {this.state.is500Error && <span className="famo-text-7">{t('key_306')}</span>}
                                     </div>
                                     <button className="famo-button famo-confirm-button signin-button-submit" type="submit">
                                         <span className="famo-text-5">{t('key_238')}</span>
@@ -81,8 +93,8 @@ class SignIn extends React.Component {
                 </div>
             </section>
         );
-    };
-};
+    }
+}
 
 class SignInInputMsg extends React.Component {
     render() {

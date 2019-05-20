@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SignIn from './Scripts/signIn';
-import './Scripts/i18n';
+import Routing from './Scripts/routing';
+import Authentication from './Scripts/authentication';
 
-ReactDOM.render(<SignIn />, document.getElementById('root'));
+const auth = new Authentication();
+
+ReactDOM.render(<Routing authentication={auth} />, document.getElementById('root'));
