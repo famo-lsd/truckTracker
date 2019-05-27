@@ -1,0 +1,28 @@
+{
+  "name": "truck-tracker-svr",
+  "version": "1.0.0",
+  "description": "Server - TruckTracker",
+  "main": "app.js",
+  "scripts": {
+    "server": "nodemon ./app.js"
+  },
+  "author": "FAMO",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "express": "^4.17.0",
+    "express-session": "^1.16.1",
+    "express-winston": "^3.1.0",
+    "helmet": "^3.18.0",
+    "moment": "^2.24.0",
+    "morgan": "^1.9.1",
+    "uuid": "^3.3.2",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.0"
+  }
+}
