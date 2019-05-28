@@ -1,16 +1,17 @@
-import express from 'express';
+import authentication from './controllers/authentication';
 import bodyParser from 'body-parser';
 import compression from 'compression';
-import helmet from 'helmet';
 import cors from 'cors';
-import winston from 'winston';
+import express from 'express';
 import expressWinston from 'express-winston';
-import morgan from 'morgan';
 import fs from 'fs';
+import helmet from 'helmet';
+import morgan from 'morgan';
 import path from 'path';
 import session from 'express-session';
 import uuidv4 from 'uuid/v4';
-import authentication from './controllers/authentication';
+import winston from 'winston';
+import { LOGS_BASE_DIR } from './utils/constants';
 
 //express
 const app = express();
@@ -26,7 +27,10 @@ app.use(compression());
 app.use(helmet());
 
 //cors
-app.use(cors());
+app.use(cors({
+    // origin: 'http://localhost:3000',
+    // allowedHeaders: true
+}));
 
 //session
 app.use(session({
@@ -41,11 +45,11 @@ app.use(session({
     },
     name: 'TRUCK_TRACKER_AUTH',
     saveUninitialized: false,
-    resave: true
+    resave: false
 }));
 
 //morgan
-app.use(morgan('combined', { stream: fs.createWriteStream(path.join(__dirname + '\\logs', 'access.log'), { flags: 'a' }) }));
+app.use(morgan('combined', { stream: fs.createWriteStream(path.join(LOGS_BASE_DIR, 'access.log'), { flags: 'a' }) }));
 
 //routes
 app.use('/Authentication', authentication);
@@ -53,7 +57,7 @@ app.use('/Authentication', authentication);
 //expressWinston
 app.use(expressWinston.errorLogger({
     transports: [
-        new winston.transports.File({ filename: './logs/errors.log' })
+        new winston.transports.File({ filename: LOGS_BASE_DIR + 'errors.log' })
     ],
     format: winston.format.combine(
         winston.format.json()

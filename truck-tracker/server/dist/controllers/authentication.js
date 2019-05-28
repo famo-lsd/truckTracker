@@ -3,13 +3,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = __importDefault(require("express"));
-const querystring_1 = __importDefault(require("querystring"));
 const axios_1 = __importDefault(require("axios"));
+const express_1 = __importDefault(require("express"));
+const http_status_1 = __importDefault(require("http-status"));
 const log_1 = __importDefault(require("../utils/log"));
+const querystring_1 = __importDefault(require("querystring"));
 const constants_1 = require("../utils/constants");
 const router = express_1.default.Router();
-router.get('/SignIn', (req, res) => {
+router.post('/SignIn', (req, res) => {
     axios_1.default({
         method: 'POST',
         url: constants_1.WEB_API + 'token',
@@ -22,23 +23,23 @@ router.get('/SignIn', (req, res) => {
             password: req.body.password
         }),
     }).then((tokenRes) => {
-        getAuthUser(tokenRes.data.access_token, req.body.username).then((userAuth) => {
+        getAuthUser(tokenRes.data.access_token, req.body.username).then((userAuthRes) => {
             req.session.token = tokenRes.data;
-            res.send(userAuth.data);
+            req.session.authUser = userAuthRes.data;
+            res.send(userAuthRes.data);
         }).catch((userErr) => {
             log_1.default.createFileLog(userErr.message, userErr.stack, userErr.request && userErr.response ? { method: userErr.request.method, url: userErr.request.path, statusCode: userErr.response.status } : null);
+            res.status(userErr.response ? userErr.response.status : http_status_1.default.INTERNAL_SERVER_ERROR).send();
         });
     }).catch((tokenErr) => {
         log_1.default.createFileLog(tokenErr.message, tokenErr.stack, tokenErr.request && tokenErr.response ? { method: tokenErr.request.method, url: tokenErr.request.path, statusCode: tokenErr.response.status } : null);
-        if (tokenErr.request && tokenErr.response) {
-            console.log('teste');
-        }
+        res.status(tokenErr.response ? tokenErr.response.status : http_status_1.default.INTERNAL_SERVER_ERROR).send();
     });
 });
 function getAuthUser(accessToken, username) {
     return axios_1.default({
         method: 'POST',
-        url: constants_1.WEB_API + 'api/Authorization/pConConfigurator',
+        url: constants_1.WEB_API + 'api/Authorization/TruckTracker',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': 'bearer ' + accessToken
@@ -49,4 +50,15 @@ function getAuthUser(accessToken, username) {
     });
 }
 ;
+router.get('/Session/User', (req, res) => {
+    let authUser = req.session.authUser;
+    console.log(req['sessionID']);
+    if (authUser) {
+        res.send(authUser);
+    }
+    else {
+        res.status(http_status_1.default.NO_CONTENT).send();
+    }
+});
 exports.default = router;
+//# sourceMappingURL=authentication.js.map

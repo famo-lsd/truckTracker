@@ -1,5 +1,6 @@
 import fs from 'fs';
 import moment from 'moment';
+import { LOGS_BASE_DIR } from './constants';
 
 interface iHttpLogData {
     method: string;
@@ -10,7 +11,7 @@ interface iHttpLogData {
 class log {
     static createFileLog(errorMsg: string, errorStack: string = null, httpData: iHttpLogData = null) {
         let dateTimeFormat = 'DD/MM/YYYY HH:mm:ss.SSS',
-            logsDir = './logs/app/',
+            logsDir = LOGS_BASE_DIR + 'app/',
             logFile = logsDir + moment().format('DD_MM_YYYY') + '.log',
             errorMessage = 'Date: ' + moment().format(dateTimeFormat) + '\n'
                 + 'Message: ' + errorMsg + '\n'

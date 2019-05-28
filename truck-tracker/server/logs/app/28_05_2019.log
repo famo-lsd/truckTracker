@@ -1,0 +1,325 @@
+Date: 28/05/2019 09:02:16.302
+Message: Request failed with status code 400
+Stack: Error: Request failed with status code 400
+    at createError (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\createError.js:16:15)
+    at settle (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\settle.js:18:12)
+    at IncomingMessage.handleStreamEnd (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\adapters\http.js:201:11)
+    at IncomingMessage.emit (events.js:194:15)
+    at endReadableNT (_stream_readable.js:1125:12)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+Method: POST
+Url: /FAMO.WebAPI/token
+StatusCode: 400
+
+Date: 28/05/2019 09:04:09.284
+Message: Request failed with status code 400
+Stack: Error: Request failed with status code 400
+    at createError (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\createError.js:16:15)
+    at settle (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\settle.js:18:12)
+    at IncomingMessage.handleStreamEnd (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\adapters\http.js:201:11)
+    at IncomingMessage.emit (events.js:194:15)
+    at endReadableNT (_stream_readable.js:1125:12)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+Method: POST
+Url: /FAMO.WebAPI/token
+StatusCode: 400
+
+Date: 28/05/2019 09:20:37.542
+Message: Request failed with status code 400
+Stack: Error: Request failed with status code 400
+    at createError (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\createError.js:16:15)
+    at settle (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\settle.js:18:12)
+    at IncomingMessage.handleStreamEnd (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\adapters\http.js:201:11)
+    at IncomingMessage.emit (events.js:194:15)
+    at endReadableNT (_stream_readable.js:1125:12)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+Method: POST
+Url: /FAMO.WebAPI/token
+StatusCode: 400
+
+Date: 28/05/2019 09:20:44.479
+Message: Request failed with status code 400
+Stack: Error: Request failed with status code 400
+    at createError (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\createError.js:16:15)
+    at settle (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\settle.js:18:12)
+    at IncomingMessage.handleStreamEnd (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\adapters\http.js:201:11)
+    at IncomingMessage.emit (events.js:194:15)
+    at endReadableNT (_stream_readable.js:1125:12)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+Method: POST
+Url: /FAMO.WebAPI/token
+StatusCode: 400
+
+Date: 28/05/2019 10:35:50.505
+Message: Request failed with status code 400
+Stack: Error: Request failed with status code 400
+    at createError (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\createError.js:16:15)
+    at settle (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\settle.js:18:12)
+    at IncomingMessage.handleStreamEnd (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\adapters\http.js:201:11)
+    at IncomingMessage.emit (events.js:194:15)
+    at endReadableNT (_stream_readable.js:1125:12)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+Method: POST
+Url: /FAMO.WebAPI/token
+StatusCode: 400
+
+Date: 28/05/2019 11:26:34.916
+Message: Request failed with status code 400
+Stack: Error: Request failed with status code 400
+    at createError (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\createError.js:16:15)
+    at settle (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\settle.js:18:12)
+    at IncomingMessage.handleStreamEnd (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\adapters\http.js:201:11)
+    at IncomingMessage.emit (events.js:194:15)
+    at endReadableNT (_stream_readable.js:1125:12)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+Method: POST
+Url: /FAMO.WebAPI/token
+StatusCode: 400
+
+Date: 28/05/2019 11:38:36.780
+Message: Request failed with status code 400
+Stack: Error: Request failed with status code 400
+    at createError (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\createError.js:16:15)
+    at settle (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\settle.js:18:12)
+    at IncomingMessage.handleStreamEnd (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\adapters\http.js:201:11)
+    at IncomingMessage.emit (events.js:194:15)
+    at endReadableNT (_stream_readable.js:1125:12)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+Method: POST
+Url: /FAMO.WebAPI/token
+StatusCode: 400
+
+Date: 28/05/2019 11:41:49.332
+Message: Request failed with status code 400
+Stack: Error: Request failed with status code 400
+    at createError (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\createError.js:16:15)
+    at settle (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\settle.js:18:12)
+    at IncomingMessage.handleStreamEnd (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\adapters\http.js:201:11)
+    at IncomingMessage.emit (events.js:194:15)
+    at endReadableNT (_stream_readable.js:1125:12)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+Method: POST
+Url: /FAMO.WebAPI/token
+StatusCode: 400
+
+Date: 28/05/2019 11:47:56.648
+Message: Request failed with status code 400
+Stack: Error: Request failed with status code 400
+    at createError (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\createError.js:16:15)
+    at settle (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\settle.js:18:12)
+    at IncomingMessage.handleStreamEnd (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\adapters\http.js:201:11)
+    at IncomingMessage.emit (events.js:194:15)
+    at endReadableNT (_stream_readable.js:1125:12)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+Method: POST
+Url: /FAMO.WebAPI/token
+StatusCode: 400
+
+Date: 28/05/2019 11:48:01.407
+Message: Request failed with status code 400
+Stack: Error: Request failed with status code 400
+    at createError (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\createError.js:16:15)
+    at settle (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\settle.js:18:12)
+    at IncomingMessage.handleStreamEnd (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\adapters\http.js:201:11)
+    at IncomingMessage.emit (events.js:194:15)
+    at endReadableNT (_stream_readable.js:1125:12)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+Method: POST
+Url: /FAMO.WebAPI/token
+StatusCode: 400
+
+Date: 28/05/2019 11:48:03.618
+Message: Request failed with status code 400
+Stack: Error: Request failed with status code 400
+    at createError (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\createError.js:16:15)
+    at settle (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\settle.js:18:12)
+    at IncomingMessage.handleStreamEnd (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\adapters\http.js:201:11)
+    at IncomingMessage.emit (events.js:194:15)
+    at endReadableNT (_stream_readable.js:1125:12)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+Method: POST
+Url: /FAMO.WebAPI/token
+StatusCode: 400
+
+Date: 28/05/2019 11:48:05.876
+Message: Request failed with status code 400
+Stack: Error: Request failed with status code 400
+    at createError (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\createError.js:16:15)
+    at settle (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\settle.js:18:12)
+    at IncomingMessage.handleStreamEnd (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\adapters\http.js:201:11)
+    at IncomingMessage.emit (events.js:194:15)
+    at endReadableNT (_stream_readable.js:1125:12)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+Method: POST
+Url: /FAMO.WebAPI/token
+StatusCode: 400
+
+Date: 28/05/2019 11:48:11.908
+Message: Request failed with status code 400
+Stack: Error: Request failed with status code 400
+    at createError (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\createError.js:16:15)
+    at settle (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\settle.js:18:12)
+    at IncomingMessage.handleStreamEnd (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\adapters\http.js:201:11)
+    at IncomingMessage.emit (events.js:194:15)
+    at endReadableNT (_stream_readable.js:1125:12)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+Method: POST
+Url: /FAMO.WebAPI/token
+StatusCode: 400
+
+Date: 28/05/2019 11:48:13.605
+Message: Request failed with status code 400
+Stack: Error: Request failed with status code 400
+    at createError (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\createError.js:16:15)
+    at settle (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\settle.js:18:12)
+    at IncomingMessage.handleStreamEnd (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\adapters\http.js:201:11)
+    at IncomingMessage.emit (events.js:194:15)
+    at endReadableNT (_stream_readable.js:1125:12)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+Method: POST
+Url: /FAMO.WebAPI/token
+StatusCode: 400
+
+Date: 28/05/2019 11:48:14.500
+Message: Request failed with status code 400
+Stack: Error: Request failed with status code 400
+    at createError (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\createError.js:16:15)
+    at settle (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\settle.js:18:12)
+    at IncomingMessage.handleStreamEnd (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\adapters\http.js:201:11)
+    at IncomingMessage.emit (events.js:194:15)
+    at endReadableNT (_stream_readable.js:1125:12)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+Method: POST
+Url: /FAMO.WebAPI/token
+StatusCode: 400
+
+Date: 28/05/2019 11:48:15.060
+Message: Request failed with status code 400
+Stack: Error: Request failed with status code 400
+    at createError (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\createError.js:16:15)
+    at settle (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\settle.js:18:12)
+    at IncomingMessage.handleStreamEnd (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\adapters\http.js:201:11)
+    at IncomingMessage.emit (events.js:194:15)
+    at endReadableNT (_stream_readable.js:1125:12)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+Method: POST
+Url: /FAMO.WebAPI/token
+StatusCode: 400
+
+Date: 28/05/2019 11:48:15.431
+Message: Request failed with status code 400
+Stack: Error: Request failed with status code 400
+    at createError (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\createError.js:16:15)
+    at settle (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\settle.js:18:12)
+    at IncomingMessage.handleStreamEnd (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\adapters\http.js:201:11)
+    at IncomingMessage.emit (events.js:194:15)
+    at endReadableNT (_stream_readable.js:1125:12)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+Method: POST
+Url: /FAMO.WebAPI/token
+StatusCode: 400
+
+Date: 28/05/2019 11:48:15.650
+Message: Request failed with status code 400
+Stack: Error: Request failed with status code 400
+    at createError (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\createError.js:16:15)
+    at settle (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\settle.js:18:12)
+    at IncomingMessage.handleStreamEnd (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\adapters\http.js:201:11)
+    at IncomingMessage.emit (events.js:194:15)
+    at endReadableNT (_stream_readable.js:1125:12)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+Method: POST
+Url: /FAMO.WebAPI/token
+StatusCode: 400
+
+Date: 28/05/2019 11:48:15.845
+Message: Request failed with status code 400
+Stack: Error: Request failed with status code 400
+    at createError (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\createError.js:16:15)
+    at settle (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\settle.js:18:12)
+    at IncomingMessage.handleStreamEnd (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\adapters\http.js:201:11)
+    at IncomingMessage.emit (events.js:194:15)
+    at endReadableNT (_stream_readable.js:1125:12)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+Method: POST
+Url: /FAMO.WebAPI/token
+StatusCode: 400
+
+Date: 28/05/2019 11:48:16.054
+Message: Request failed with status code 400
+Stack: Error: Request failed with status code 400
+    at createError (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\createError.js:16:15)
+    at settle (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\settle.js:18:12)
+    at IncomingMessage.handleStreamEnd (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\adapters\http.js:201:11)
+    at IncomingMessage.emit (events.js:194:15)
+    at endReadableNT (_stream_readable.js:1125:12)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+Method: POST
+Url: /FAMO.WebAPI/token
+StatusCode: 400
+
+Date: 28/05/2019 11:48:16.602
+Message: Request failed with status code 400
+Stack: Error: Request failed with status code 400
+    at createError (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\createError.js:16:15)
+    at settle (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\settle.js:18:12)
+    at IncomingMessage.handleStreamEnd (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\adapters\http.js:201:11)
+    at IncomingMessage.emit (events.js:194:15)
+    at endReadableNT (_stream_readable.js:1125:12)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+Method: POST
+Url: /FAMO.WebAPI/token
+StatusCode: 400
+
+Date: 28/05/2019 11:51:43.865
+Message: Request failed with status code 400
+Stack: Error: Request failed with status code 400
+    at createError (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\createError.js:16:15)
+    at settle (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\settle.js:18:12)
+    at IncomingMessage.handleStreamEnd (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\adapters\http.js:201:11)
+    at IncomingMessage.emit (events.js:194:15)
+    at endReadableNT (_stream_readable.js:1125:12)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+Method: POST
+Url: /FAMO.WebAPI/token
+StatusCode: 400
+
+Date: 28/05/2019 11:51:51.572
+Message: Request failed with status code 400
+Stack: Error: Request failed with status code 400
+    at createError (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\createError.js:16:15)
+    at settle (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\settle.js:18:12)
+    at IncomingMessage.handleStreamEnd (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\adapters\http.js:201:11)
+    at IncomingMessage.emit (events.js:194:15)
+    at endReadableNT (_stream_readable.js:1125:12)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+Method: POST
+Url: /FAMO.WebAPI/token
+StatusCode: 400
+
+Date: 28/05/2019 11:52:46.000
+Message: Request failed with status code 400
+Stack: Error: Request failed with status code 400
+    at createError (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\createError.js:16:15)
+    at settle (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\settle.js:18:12)
+    at IncomingMessage.handleStreamEnd (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\adapters\http.js:201:11)
+    at IncomingMessage.emit (events.js:194:15)
+    at endReadableNT (_stream_readable.js:1125:12)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+Method: POST
+Url: /FAMO.WebAPI/token
+StatusCode: 400
+
+Date: 28/05/2019 12:06:00.019
+Message: Request failed with status code 500
+Stack: Error: Request failed with status code 500
+    at createError (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\createError.js:16:15)
+    at settle (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\core\settle.js:18:12)
+    at IncomingMessage.handleStreamEnd (L:\Git\TruckTracker\truck-tracker\server\node_modules\axios\lib\adapters\http.js:201:11)
+    at IncomingMessage.emit (events.js:194:15)
+    at endReadableNT (_stream_readable.js:1125:12)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+Method: POST
+Url: /FAMO.WebAPI/token
+StatusCode: 500
+

@@ -1,9 +1,9 @@
 import Auth from './authentication';
 import classNames from 'classnames';
 import React from 'react';
+import store from './redux/store';
 import { Redirect } from 'react-router-dom';
 import { setAuthUser } from './redux/actions';
-import store from './redux/store';
 import { withTranslation } from 'react-i18next';
 import './utils/i18n';
 
@@ -61,9 +61,13 @@ class SignIn extends React.Component {
     handleSubmit = (event) => {
         event.preventDefault();
 
-        this.setState({ authError: false, authHttpCode: -1 });
-        Auth.signIn('password', this.state.username, this.state.password, this.handleSignInSuccess, this.handleSignInError);
-        console.log('lá se foi');
+        if (!this.state.username || !this.state.password) {
+            this.setState({ hideUserMsg: this.state.username ? true : false, hidePwdMsg: this.state.password ? true : false });
+        }
+        else {
+            this.setState({ authError: false, authHttpCode: -1 });
+            Auth.signIn(this.state.username, this.state.password, this.handleSignInSuccess, this.handleSignInError);
+        }
     }
 
     render() {

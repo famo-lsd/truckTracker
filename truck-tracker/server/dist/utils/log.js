@@ -5,10 +5,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = __importDefault(require("fs"));
 const moment_1 = __importDefault(require("moment"));
+const constants_1 = require("./constants");
 ;
 class log {
     static createFileLog(errorMsg, errorStack = null, httpData = null) {
-        let dateTimeFormat = 'DD/MM/YYYY HH:mm:ss.SSS', logsDir = './logs/app/', logFile = logsDir + moment_1.default().format('DD_MM_YYYY') + '.log', errorMessage = 'Date: ' + moment_1.default().format(dateTimeFormat) + '\n'
+        let dateTimeFormat = 'DD/MM/YYYY HH:mm:ss.SSS', logsDir = constants_1.LOGS_BASE_DIR + 'app/', logFile = logsDir + moment_1.default().format('DD_MM_YYYY') + '.log', errorMessage = 'Date: ' + moment_1.default().format(dateTimeFormat) + '\n'
             + 'Message: ' + errorMsg + '\n'
             + (errorStack ? 'Stack: ' + errorStack + '\n' : '')
             + (httpData ? ('Method: ' + httpData.method + '\n'
@@ -25,3 +26,4 @@ class log {
     }
 }
 exports.default = log;
+//# sourceMappingURL=log.js.map
