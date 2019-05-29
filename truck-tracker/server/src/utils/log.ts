@@ -8,9 +8,9 @@ interface iHttpLogData {
     statusCode: number
 };
 
-class log {
+class Log {
     static createFileLog(errorMsg: string, errorStack: string = null, httpData: iHttpLogData = null) {
-        let dateTimeFormat = 'DD/MM/YYYY HH:mm:ss.SSS',
+        const dateTimeFormat = 'DD/MM/YYYY HH:mm:ss.SSS',
             logsDir = LOGS_BASE_DIR + 'app/',
             logFile = logsDir + moment().format('DD_MM_YYYY') + '.log',
             errorMessage = 'Date: ' + moment().format(dateTimeFormat) + '\n'
@@ -32,4 +32,4 @@ class log {
     }
 }
 
-export default log;
+export default Log;

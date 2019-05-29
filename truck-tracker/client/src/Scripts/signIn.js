@@ -26,22 +26,6 @@ class SignIn extends React.Component {
         return 'signin-error-input' + (hideFlag ? ' hide' : '');
     }
 
-    handleSignInSuccess = (user) => {
-        store.dispatch(setAuthUser(user));
-        this.setState({ authSuccess: true });
-    }
-
-    handleSignInError = (httpCode) => {
-        const { t } = this.props;
-
-        if (httpCode !== 400 && httpCode !== 500) {
-            console.log(t('key_416') + ' - ' + httpCode);
-        }
-
-        this.refs.username.focus();
-        this.setState({ password: '', hidePwdMsg: true, authError: true, authHttpCode: httpCode });
-    }
-
     handleChangeInput = (event) => {
         this.setState({ [event.target.name]: event.target.value });
     }
@@ -58,16 +42,37 @@ class SignIn extends React.Component {
         }
     }
 
-    handleSubmit = (event) => {
+    handleSubmit = async (event) => {
         event.preventDefault();
 
         if (!this.state.username || !this.state.password) {
             this.setState({ hideUserMsg: this.state.username ? true : false, hidePwdMsg: this.state.password ? true : false });
         }
         else {
+            const sigInRes = await Auth.signIn(this.state.username, this.state.password),
+                { t } = this.props;
+
             this.setState({ authError: false, authHttpCode: -1 });
-            Auth.signIn(this.state.username, this.state.password, this.handleSignInSuccess, this.handleSignInError);
+
+            if (sigInRes.ok) {
+                store.dispatch(setAuthUser(await sigInRes.json()));
+                this.setState({ authSuccess: true });
+            }
+            else {
+                const httpCode = sigInRes.status;
+
+                if (httpCode !== 400 && httpCode !== 500) {
+                    console.log(t('key_416') + ' - ' + httpCode);
+                }
+
+                this.refs.username.focus();
+                this.setState({ password: '', hidePwdMsg: true, authError: true, authHttpCode: httpCode });
+            }
         }
+    }
+
+    componentDidMount() {
+        this.refs.username.focus();
     }
 
     render() {
@@ -76,10 +81,10 @@ class SignIn extends React.Component {
             userInputClassName = classNames(inputClassName, { 'famo-input-error': !this.state.hideUserMsg }),
             pwdInputClassName = classNames(inputClassName, { 'famo-input-error': !this.state.hidePwdMsg }),
             errSubmitClassName = classNames('signin-error-submit', { 'hide': !this.state.authError }),
-            { t } = this.props;
+            { t, location } = this.props;
 
         if (this.state.authSuccess) {
-            return <Redirect to={this.props.location.state || { from: { pathname: '/' } }} />;
+            return <Redirect to={location.state || { from: { pathname: '/' } }} />;
         }
 
         return (
@@ -96,7 +101,7 @@ class SignIn extends React.Component {
                                 </div>
                                 <form id="signin-form" method="POST" onSubmit={this.handleSubmit}>
                                     <div className="signin-input-wrapper">
-                                        <input type="text" id="signin-username-input" className={userInputClassName} placeholder={t('key_397')} ref="username" name="username" value={this.state.username} autoComplete="off" autoFocus onChange={this.handleChangeInput} onFocus={this.handleUserInput} onBlur={this.handleUserInput} />
+                                        <input type="text" id="signin-username-input" className={userInputClassName} placeholder={t('key_397')} ref="username" name="username" value={this.state.username} autoComplete="off" onChange={this.handleChangeInput} onFocus={this.handleUserInput} onBlur={this.handleUserInput} />
                                         <SignInInputMsg msgClass={this.hideInputMsg(this.state.hideUserMsg)} msgText={t('key_196')} />
                                     </div>
                                     <div className="signin-input-wrapper">

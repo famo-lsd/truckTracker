@@ -10,6 +10,19 @@ const log_1 = __importDefault(require("../utils/log"));
 const querystring_1 = __importDefault(require("querystring"));
 const constants_1 = require("../utils/constants");
 const router = express_1.default.Router();
+function getAuthUser(accessToken, username) {
+    return axios_1.default({
+        method: 'POST',
+        url: constants_1.WEB_API + 'api/Authorization/TruckTracker',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'bearer ' + accessToken
+        },
+        data: {
+            username: username
+        }
+    });
+}
 router.post('/SignIn', (req, res) => {
     axios_1.default({
         method: 'POST',
@@ -36,23 +49,20 @@ router.post('/SignIn', (req, res) => {
         res.status(tokenErr.response ? tokenErr.response.status : http_status_1.default.INTERNAL_SERVER_ERROR).send();
     });
 });
-function getAuthUser(accessToken, username) {
-    return axios_1.default({
-        method: 'POST',
-        url: constants_1.WEB_API + 'api/Authorization/TruckTracker',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'bearer ' + accessToken
-        },
-        data: {
-            username: username
+router.get('/SignOut', (req, res) => {
+    const sessionID = req.sessionID;
+    req.sessionStore.destroy(sessionID, (err) => {
+        if (err) {
+            log_1.default.createFileLog(err.message, err.stack, { method: req.method, url: req.path, statusCode: http_status_1.default.INTERNAL_SERVER_ERROR });
+            res.status(http_status_1.default.INTERNAL_SERVER_ERROR).send();
+        }
+        else {
+            res.send();
         }
     });
-}
-;
+});
 router.get('/Session/User', (req, res) => {
-    let authUser = req.session.authUser;
-    console.log(req['sessionID']);
+    const authUser = req.session.authUser;
     if (authUser) {
         res.send(authUser);
     }

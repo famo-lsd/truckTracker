@@ -1,69 +1,48 @@
-import axios from 'axios';
 import Home from './home';
-import httpStatus from 'http-status';
 import React from 'react';
 import SignIn from './signIn';
 import store from './redux/store';
-import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
-import { NODE_SERVER } from './utils/constants';
-import { setAuthUser } from './redux/actions';
+import { BrowserRouter, HashRouter, Route, Redirect, Switch } from 'react-router-dom';
 
 export default class Routing extends React.Component {
-    componentDidMount() {
-        const { authentication } = store.getState();
-
-        if (!authentication.user) {
-            fetch(NODE_SERVER + 'Authentication/Session/User', {
-                method: 'GET',
-                credentials: 'include'
-            }).then(res => {
-                if (res.ok && res.status === httpStatus.OK) {
-                    res.json().then(data => {
-                        console.log(data);
-                        store.dispatch(setAuthUser(data));
-                    }).catch(err => {
-                        console.log(err);
-                    });
-                }
-                else {
-                    console.log(res.status + " - " + res.statusText);
-                }
-            }).catch(err => {
-                console.log(err);
-            });
-
-            axios({
-                method: 'GET',
-                url: NODE_SERVER + 'Authentication/Session/User'
-            }).then((res) => {
-
-            }).catch((err) => {
-                console.log(err);
-            });
-        }
-    }
-
     render() {
-        return (
-            <BrowserRouter>
-                <Switch>
-                    <PrivateRoute exact path="/" component={Home} />
-                    <Route exact path="/SignIn" render={(props) => {
-                        return (<SignIn {...props} />);
-                    }} />
-                </Switch>
-            </BrowserRouter>
-        );
+        if (!window.cordova) {
+            return (
+                <BrowserRouter>
+                    <RoutingBody />
+                </BrowserRouter>
+            );
+        }
+        else {
+            return (
+                <HashRouter>
+                    <RoutingBody />
+                </HashRouter>
+            );
+        }
     }
 }
 
+function RoutingBody() {
+    const { authUser } = store.getState();
+
+    return (
+        <Switch>
+            <PrivateRoute exact path="/" component={Home} />
+            <Route exact path="/SignIn" render={(routeProps) => {
+                return authUser ? (<Redirect to={{ pathname: "/" }} />) : (<SignIn {...routeProps} />);
+            }} />
+        </Switch>
+    );
+}
+
 function PrivateRoute({ component: Component, ...rest }) {
-    const { authentication } = store.getState();
+    const { authUser } = store.getState();
 
     return (
         <Route
             render={routeProps => {
-                return authentication.user ? (
+                return authUser ? (
                     <Component {...routeProps} />
                 ) : (
                         <Redirect
@@ -73,8 +52,7 @@ function PrivateRoute({ component: Component, ...rest }) {
                             }}
                         />
                     );
-            }
-            }
+            }}
         />
     );
 }

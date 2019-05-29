@@ -1,8 +1,7 @@
-import Authentication from '../authentication';
 import { SET_AUTH_USER } from '../utils/constants';
 
 const appState = {
-    authentication: new Authentication()
+    authUser: null
 };
 
 export default function appReducer(state = appState, action) {
@@ -10,7 +9,7 @@ export default function appReducer(state = appState, action) {
 
     switch (action.type) {
         case SET_AUTH_USER:
-            copyState.authentication['user'] = action.data;
+            copyState.authUser = action.data;
             break;
         default:
             break;

@@ -4,6 +4,7 @@ import compression from 'compression';
 import cors from 'cors';
 import express from 'express';
 import expressWinston from 'express-winston';
+import impFileStore from 'session-file-store';
 import fs from 'fs';
 import helmet from 'helmet';
 import morgan from 'morgan';
@@ -11,10 +12,13 @@ import path from 'path';
 import session from 'express-session';
 import uuidv4 from 'uuid/v4';
 import winston from 'winston';
-import { LOGS_BASE_DIR } from './utils/constants';
+import { LOGS_BASE_DIR, MONTH_MS } from './utils/constants';
 
 //express
 const app = express();
+
+//session-file-store
+const FileStore = impFileStore(session);
 
 //bodyParser
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -28,15 +32,18 @@ app.use(helmet());
 
 //cors
 app.use(cors({
-    // origin: 'http://localhost:3000',
-    // allowedHeaders: true
+    origin: true,
+    credentials: true
 }));
 
 //session
 app.use(session({
+    store: new FileStore({
+        ttl: MONTH_MS
+    }),
     secret: 'famo_truck_tracker_session_sk',
     cookie: {
-        maxAge: 31536000000, //1 year
+        maxAge: MONTH_MS,
         httpOnly: true,
         secure: false
     },
