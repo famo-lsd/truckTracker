@@ -31,14 +31,14 @@ router.post('/SignIn', (req, res) => {
             'Content-Type': 'application/x-www-form-urlencoded'
         },
         data: querystring.stringify({
-            grant_type: 'password',
+            grant_type: 'password', // eslint-disable-line @typescript-eslint/camelcase
             username: req.body.username,
             password: req.body.password
         }),
     }).then((tokenRes) => {
         getAuthUser(tokenRes.data.access_token, req.body.username).then((userAuthRes) => {
-            (<any>req).session.token = tokenRes.data;
-            (<any>req).session.authUser = userAuthRes.data;
+            (req as any).session.token = tokenRes.data;
+            (req as any).session.authUser = userAuthRes.data;
 
             res.send(userAuthRes.data);
         }).catch((userErr) => {
@@ -58,9 +58,9 @@ router.post('/SignIn', (req, res) => {
 });
 
 router.get('/SignOut', (req, res) => {
-    const sessionID = (<any>req).sessionID;
+    const sessionID = (req as any).sessionID;
 
-    (<any>req).sessionStore.destroy(sessionID, (err) => {
+    (req as any).sessionStore.destroy(sessionID, (err) => {
         if (err) {
             Log.createFileLog(err.message, err.stack, { method: req.method, url: req.path, statusCode: httpStatus.INTERNAL_SERVER_ERROR });
             res.status(httpStatus.INTERNAL_SERVER_ERROR).send();
@@ -72,7 +72,7 @@ router.get('/SignOut', (req, res) => {
 });
 
 router.get('/Session/User', (req, res) => {
-    const authUser = (<any>req).session.authUser;
+    const authUser = (req as any).session.authUser;
 
     if (authUser) {
         res.send(authUser);

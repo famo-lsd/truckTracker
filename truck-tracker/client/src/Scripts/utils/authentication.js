@@ -1,4 +1,4 @@
-import { NODE_SERVER } from './utils/constants';
+import { NODE_SERVER } from './constants';
 
 export default class Authentication {
     static signIn = async (username, password) => {

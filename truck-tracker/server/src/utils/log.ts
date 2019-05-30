@@ -2,14 +2,14 @@ import fs from 'fs';
 import moment from 'moment';
 import { LOGS_BASE_DIR } from './constants';
 
-interface iHttpLogData {
+interface HttpLogData {
     method: string;
     url: string;
-    statusCode: number
+    statusCode: number;
 };
 
 class Log {
-    static createFileLog(errorMsg: string, errorStack: string = null, httpData: iHttpLogData = null) {
+    public static createFileLog(errorMsg: string, errorStack: string = null, httpData: HttpLogData = null) {
         const dateTimeFormat = 'DD/MM/YYYY HH:mm:ss.SSS',
             logsDir = LOGS_BASE_DIR + 'app/',
             logFile = logsDir + moment().format('DD_MM_YYYY') + '.log',

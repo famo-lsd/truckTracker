@@ -1,6 +1,7 @@
-import Home from './home';
+import Home from './pages/home';
 import React from 'react';
-import SignIn from './signIn';
+import PropTypes from 'prop-types';
+import SignIn from './pages/signIn';
 import store from './redux/store';
 import { BrowserRouter, HashRouter, Route, Redirect, Switch } from 'react-router-dom';
 
@@ -36,7 +37,7 @@ function RoutingBody() {
     );
 }
 
-function PrivateRoute({ component: Component, ...rest }) {
+function PrivateRoute({ component: Component }) {
     const { authUser } = store.getState();
 
     return (
@@ -55,4 +56,8 @@ function PrivateRoute({ component: Component, ...rest }) {
             }}
         />
     );
+}
+
+PrivateRoute.propTypes = {
+    component: PropTypes.any
 }

@@ -1,1 +1,1 @@
-{"version":3,"file":"constants.js","sourceRoot":"","sources":["../../src/utils/constants.ts"],"names":[],"mappings":";;AAAa,QAAA,aAAa,GAAG,SAAS,EAClC,QAAA,QAAQ,GAAG,UAAU,EACrB,QAAA,OAAO,GAAG,+BAA+B,CAAC"}
+{"version":3,"file":"constants.js","sourceRoot":"","sources":["../../src/utils/constants.ts"],"names":[],"mappings":";;AAAa,QAAA,aAAa,GAAG,SAAS,EAClC,QAAA,QAAQ,GAAG,UAAU,EACrB,QAAA,OAAO,GAAG,+BAA+B,CAAC","sourcesContent":["export const LOGS_BASE_DIR = './logs/',\r\n    MONTH_MS = 2592000000,\r\n    WEB_API = 'http://localhost/FAMO.WebAPI/';\r\n"]}

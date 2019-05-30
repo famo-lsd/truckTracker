@@ -47,7 +47,7 @@ app.use(session({
         httpOnly: true,
         secure: false
     },
-    genid: function (req) {
+    genid: function (req) { // eslint-disable-line @typescript-eslint/no-unused-vars
         return uuidv4();
     },
     name: 'TRUCK_TRACKER_AUTH',

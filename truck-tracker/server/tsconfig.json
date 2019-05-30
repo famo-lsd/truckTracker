@@ -1,14 +1,16 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "module": "commonjs",
-    "allowJs": true,
-    "checkJs": true,
+    "target": "ES6",
+    "module": "CommonJS",
+    "allowJs": false,
+    "checkJs": false,
     "sourceMap": true,
+    "inlineSources": true,
     "outDir": "./dist",
     "removeComments": true,
     "noImplicitAny": false,
     "noUnusedLocals": false,
+    "noUnusedParameters": false,
     "strictNullChecks": false,
     "esModuleInterop": true
   },
@@ -16,7 +18,9 @@
     "src/**/*"
   ],
   "exclude": [
-    "node_modules/",
-    "logs/"
+    "node_modules",
+    "logs",
+    "sessions",
+    "dist"
   ]
 }

@@ -1,15 +1,19 @@
-import Auth from './authentication';
+import Auth from '../utils/authentication';
 import classNames from 'classnames';
 import React from 'react';
-import store from './redux/store';
+import PropTypes from 'prop-types';
+import store from '../redux/store';
 import { Redirect } from 'react-router-dom';
-import { setAuthUser } from './redux/actions';
+import { setAuthUser } from '../redux/actions';
 import { withTranslation } from 'react-i18next';
-import './utils/i18n';
+import '../utils/i18n';
 
 class SignIn extends React.Component {
     constructor(props) {
         super(props);
+
+        //refs
+        this.usernameRef = React.createRef();
 
         this.state = {
             username: '',
@@ -65,14 +69,14 @@ class SignIn extends React.Component {
                     console.log(t('key_416') + ' - ' + httpCode);
                 }
 
-                this.refs.username.focus();
+                this.usernameRef.current.focus();
                 this.setState({ password: '', hidePwdMsg: true, authError: true, authHttpCode: httpCode });
             }
         }
     }
 
     componentDidMount() {
-        this.refs.username.focus();
+        this.usernameRef.current.focus();
     }
 
     render() {
@@ -101,11 +105,11 @@ class SignIn extends React.Component {
                                 </div>
                                 <form id="signin-form" method="POST" onSubmit={this.handleSubmit}>
                                     <div className="signin-input-wrapper">
-                                        <input type="text" id="signin-username-input" className={userInputClassName} placeholder={t('key_397')} ref="username" name="username" value={this.state.username} autoComplete="off" onChange={this.handleChangeInput} onFocus={this.handleUserInput} onBlur={this.handleUserInput} />
+                                        <input type="text" id="signin-username-input" className={userInputClassName} placeholder={t('key_397')} ref={this.usernameRef} name="username" value={this.state.username} autoComplete="off" onChange={this.handleChangeInput} onFocus={this.handleUserInput} onBlur={this.handleUserInput} />
                                         <SignInInputMsg msgClass={this.hideInputMsg(this.state.hideUserMsg)} msgText={t('key_196')} />
                                     </div>
                                     <div className="signin-input-wrapper">
-                                        <input type="password" id="signin-password-input" className={pwdInputClassName} placeholder={t('key_314')} ref="password" name="password" value={this.state.password} onChange={this.handleChangeInput} onFocus={this.handlePwdInput} onBlur={this.handlePwdInput} />
+                                        <input type="password" id="signin-password-input" className={pwdInputClassName} placeholder={t('key_314')} name="password" value={this.state.password} onChange={this.handleChangeInput} onFocus={this.handlePwdInput} onBlur={this.handlePwdInput} />
                                         <SignInInputMsg msgClass={this.hideInputMsg(this.state.hidePwdMsg)} msgText={t('key_195')} />
                                     </div>
                                     <div className={errSubmitClassName}>
@@ -135,6 +139,11 @@ class SignIn extends React.Component {
     }
 }
 
+SignIn.propTypes = {
+    t: PropTypes.any,
+    location: PropTypes.any
+}
+
 class SignInInputMsg extends React.Component {
     render() {
         const { msgClass, msgText } = this.props;
@@ -144,6 +153,11 @@ class SignInInputMsg extends React.Component {
                 <span className="famo-text-7">{msgText}</span>
             </div>);
     }
+}
+
+SignInInputMsg.propTypes = {
+    msgClass: PropTypes.string,
+    msgText: PropTypes.string
 }
 
 export default withTranslation()(SignIn);
